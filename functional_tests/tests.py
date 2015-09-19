@@ -16,6 +16,7 @@ class PostTest(LiveServerTestCase):
         self.browser.quit()
 
     def test_can_show_web(self):
+        # User Open the website.
         self.browser.get('http://localhost:8000')
-
+        # User notices the page title and look board like body contents
         self.assertIn('Board', self.browser.title)
