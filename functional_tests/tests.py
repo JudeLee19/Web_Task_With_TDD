@@ -1,6 +1,10 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from django.test import LiveServerTestCase
+from django.conf import settings
+settings.configure()
+import django
+django.setup()
 
 
 class PostTest(LiveServerTestCase):
@@ -12,5 +16,6 @@ class PostTest(LiveServerTestCase):
         self.browser.quit()
 
     def test_can_show_web(self):
-        self.browser.get(self.live_server_url)
+        self.browser.get('http://localhost:8000')
+
         self.assertIn('Board', self.browser.title)
